@@ -72,8 +72,8 @@
                 alert('Error');
             },
             success: function(data) {
-                //var json = eval("(" + data + ")");
-                sessionStorage.queryResult = data;
+                var json = JSON.parse(data).data;
+                localStorage.setItem("queryResult", json);
                 location.href = "/sheji.html";
             }
         });
