@@ -1,0 +1,195 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <title></title> 
+<!-- For-Mobile-Apps-and-Meta-Tags -->
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //For-Mobile-Apps-and-Meta-Tags -->
+    <!--<link rel="stylesheet" href="css/common.css"/>-->
+
+    <link href="/FE/css/bootstrap.css" type="text/css" rel="stylesheet" media="all"/>
+    <link href="/FE/css/style.css" type="text/css" rel="stylesheet" media="all"/> 
+    <link rel="stylesheet" href="/FE/css/ken-burns.css" type="text/css" media="all" /> 
+    <link type="text/css" rel="stylesheet" href="/wiying/Tpl/Wap/wiying/Index/J-lvjianwu/default/index.css" />
+
+    <link rel="stylesheet" href="/css/register.css"/>
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+<!--    <link type="text/css" rel="stylesheet" href="wiying/Tpl/Wap/wiying/common/public.css" />
+    <link type="text/css" rel="stylesheet" href="wiying/Tpl/Wap/wiying/Index/J-lvjianwu/default/style.css" />-->
+    <script type="text/javascript">
+    	function chaxun() {
+    
+    var val = $("#sheng option:selected").text();
+    if (val == '选择省') {
+        alert('请选择省');
+        return;
+    }
+    var val = $("#shi option:selected").text();
+    if (val == '选择市') {
+        alert('请选择市');
+        return;
+    }
+    var val = $("#qu option:selected").text();
+    if (val == '选择区') {
+        alert('请选择区');
+        return;
+    }
+    var val = $('#dz').val();
+    if (val == "") {
+        alert("请填写地址");
+        return;
+    }
+    
+    $.ajax({
+        type: "POST",
+        url: "query.ashx",
+        datatype: "json",
+        data: {
+        'sheng': $("#sheng option:selected").text()
+        , 'shi': $("#shi option:selected").text()
+        , 'qu': $("#qu option:selected").text()
+        , 'dz': $("#dz").val()
+        , 'p': 1
+        },
+        error: function () { alert('Error'); },
+        success: function (data) {
+            var json = eval("(" + data + ")");
+            location.href = "/sheji.html"; 
+        }
+    	});
+	};
+		
+    	$(function () {
+            $.ajax({
+                type: "POST",
+                url: "sheng.ashx",
+                data: {},
+                //contentType: "application/json; charset=utf-8",服务无法接收data参数 所以注释
+                dataType: "json",
+                async: false, 
+                complete:function(){},
+                error: function () {
+                		alert('error');
+                },
+                success: function (result) { 
+                	var ping;
+                    $.each(result, function (i, item) {
+                    		 ping += "<option value="+item.ID+">";
+                        ping += item.MC;
+                        ping += "</option>";
+                    	})
+                    	$('#sheng').append(ping);
+                    	$('#sheng').change();
+                }
+            });
+
+            $('#sheng').change(function () {
+            	$('#shi option:gt(0)').remove();
+            	$('#qu option:gt(0)').remove();
+            	
+            	$.ajax({
+                type: "POST",
+                url: "shi.ashx",
+                data: {"fguid":$('#sheng option:selected').val()},
+                //contentType: "application/json; charset=utf-8",服务无法接收data参数 所以注释
+                dataType: "json",
+                async: false, 
+                complete:function(){},
+                error: function () {
+                		alert('error');
+                },
+                success: function (result) { 
+                	var ping;
+                    $.each(result, function (i, item) {
+                    		 ping += "<option value="+item.ID+">";
+                        ping += item.MC;
+                        ping += "</option>";
+                    	})
+                    	$('#shi').append(ping);
+                    	$('#shi').change();
+                }
+            	})
+            	
+            });
+            
+            
+            $('#shi').change(function () {
+            	$('#qu option:gt(0)').remove();
+            	
+            	$.ajax({
+                type: "POST",
+                url: "qu.ashx",
+                data: {"fguid":$('#shi option:selected').val()},
+                //contentType: "application/json; charset=utf-8",服务无法接收data参数 所以注释
+                dataType: "json",
+                async: false, 
+                complete:function(){},
+                error: function () {
+                		alert('error');
+                },
+                success: function (result) { 
+                	var ping;
+                    $.each(result, function (i, item) {
+                    		 ping += "<option value="+item.ID+">";
+                        ping += item.MC;
+                        ping += "</option>";
+                    	})
+                    	$('#qu').append(ping);
+                }
+            	})
+            	
+            });
+            
+            $(".submit").click(function(){
+            	chaxun();
+			});
+
+            
+          });
+    </script>
+</head>
+<body class="bg">
+    <div class="agile-main">
+        <div class="content-wrap">
+            <div class="header">
+                <div class="menu-icon">
+			<!--		<a data-rel="back" data-role="none" class="menu-button"><p></p></a>-->
+                    <button class="menu-button" id="open-button">O</button>
+				</div> 
+                <div class="login">
+                    <a class="sign-in popup-top-anim" href="/FE/index.html"><span class="glyphicon glyphicon-user"></span></a> 
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+            <div class="content">
+                <div class="content2">
+                    <div class="point">
+                        <span>选择您的位置，查询周边的维修商。</span>
+                    </div>
+      
+                    <div class="message">
+                    <div class="dz">
+                    	<select class="pro" id="sheng">
+                        <option value="0">选择省</option>
+                    	</select>
+                    	<select class="pro" id="shi">
+                        <option value="0">选择市</option>
+                    	</select>
+                    	<select class="pro" id="qu">
+                        <option value="0">选择区</option>
+                    	</select>
+                    </div>
+                    <input id="dz" type="text" placeholder="街道号" required/>
+                    </div>
+
+                    <button class="submit" type="button">开始查询</button>
+         
+                </div>
+            </div>
+
+     </div>
+    </div>
+</body>
+</html>

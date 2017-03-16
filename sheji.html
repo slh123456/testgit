@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!--<link type="text/css" rel="stylesheet" href="wiying/Tpl/Wap/wiying/common/public.css" />
+<link type="text/css" rel="stylesheet" href="/wiying/Tpl/Wap/wiying/Index/J-lvjianwu/default/style.css" />
+<link type="text/css" rel="stylesheet" href="/wiying/Tpl/Wap/wiying/Index/J-lvjianwu/default/index.css" />-->
+
+<link href="/FE/css/bootstrap.css" type="text/css" rel="stylesheet" media="all"/>
+<link href="/FE/css/style.css" type="text/css" rel="stylesheet" media="all"/> 
+<link rel="stylesheet" href="/FE/css/ken-burns.css" type="text/css" media="all" /> 
+<link type="text/css" rel="stylesheet" href="/wiying/Tpl/Wap/wiying/Index/J-lvjianwu/default/index.css" />
+
+<script type="text/javascript" src="wiying/Tpl/Wap/wiying/common/jquery.js"></script>
+<script type="text/javascript" src="wiying/Tpl/Wap/wiying/common/alert.js"></script>
+<script type="text/javascript" src="wiying/Tpl/Wap/wiying/common/common.js"></script>
+            <script>
+            $(function () {
+	            $("[g='linkgroup']").click(function () {
+	                location.href = '/FE/single.html?id=' + $(this).attr("id");
+	            });
+	        });
+            </script>
+</head>
+
+<body class="bg">
+    <div class="agile-main">
+        <div class="content-wrap">
+            <div class="header">
+                <div class="menu-icon">
+			<!--		<a data-rel="back" data-role="none" class="menu-button"><p></p></a>-->
+                    <button class="menu-button" id="open-button">O</button>
+				</div> 
+                <div class="login">
+                    <a class="sign-in popup-top-anim" href="/FE/index.html"><span class="glyphicon glyphicon-user"></span></a> 
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+            <div class="content">
+                <div class="content5">
+                    <p><b>当前位置&nbsp;:&nbsp;</b><span id="wz"></span>
+                    <span>
+                        <button type="button" class="btn btn-default" aria-label="Left Align" id="btn">
+												<span class="glyphicon glyphicon-search"></span>
+											</button>
+                    </span>
+                    </p>
+                </div>
+                <div data-role="listview" class="list-content">
+                <a data-role="none" g='linkgroup'>
+                    <div class="text-img">
+                <h4>维修空调冰箱</h4>
+                <p>距离0.5公里，靠近中兴路地铁口3号口</p>
+                <p class="p2">诚信商</p>
+                <p class="p1"></p>
+            </div>
+                </a><a data-role="none" g='linkgroup'>
+                    <div class="text-img">
+                <h4>维修空调冰箱</h4>
+                <p>距离0.5公里，靠近中兴路地铁口3号口</p>
+                <p class="p2">诚信商</p>
+                <p class="p1"></p>
+            </div>
+                </a><a data-role="none" g='linkgroup'>
+                    <div class="text-img">
+                <h4>维修空调冰箱</h4>
+                <p>距离0.5公里，靠近中兴路地铁口3号口</p>
+                <p class="p2">诚信商</p>
+                <p class="p1"></p>
+            </div>
+                </a>    
+                <!--
+<div class="button">
+<a href="#" class="prve" data-role="none">上一页</a>
+<a href="#" class="next" data-role="none">下一页</a>
+</div>
+-->
+            </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>
