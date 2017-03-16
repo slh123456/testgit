@@ -20,9 +20,9 @@
 <script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
 	    <script>
 	        $(function () {
-	            // $("[g='linkgroup']").click(function () {
-	            //     location.href = '/chaxun.html?t=' + $(this).attr("t");
-	            // });
+	            $("[g='linkgroup']").click(function () {
+	                location.href = '/chaxun.html?t=' + $(this).attr("t");
+	            });
 
 	            $("#btn").click(function () {
 	                location.href = '/chaxun.html';
@@ -51,10 +51,10 @@
 		<div class="content-wrap">
 			<div class="header"> 
 				<div class="header1">
-					
+					<h5><b>&nbsp;51上门维修</b></h5>
 											<input type="search" name="Search" placeholder="..." required="">
 											<button type="button" class="btn btn-default" aria-label="Left Align" id="btn">
-	                                            <span class="glyphicon glyphicon-search"></span>
+	                                            <!--<span class="glyphicon-search2"></span>-->
                                             </button>
 					
 				</div> 
@@ -100,46 +100,47 @@
 				</div>
 				<!-- //banner -->
                 <div class="content5">
-                    <p><b>当前位置&nbsp;:&nbsp;</b><span id="wz"></span></p>
+                         <p><b>当前位置&nbsp;:&nbsp;</b><span id="wz"></span></p>
+                         <a href="/chaxun.html"><p class="p2"></p></a>
                 </div>
 				<!-- welcome -->
 				<div class="content6"> 
-					<a data-role="none" g='linkgroup' t="0">
+					<a data-role="none" g='linkgroup' t="500">
         <div class="img" style="background:url(/upload/img/20131005/13809673822754.png) center no-repeat; background-size:contain;"></div>
-        <div class="text">修空调</div>
-    </a><a data-role="none" g='linkgroup' t="1">
-        <div class="img" style="background:url(/upload/img/20131005/13809673974739.png) center no-repeat; background-size:contain;"></div>
-        <div class="text">移机</div>
-    </a><a data-role="none" g='linkgroup' t="2">
-        <div class="img" style="background:url(/upload/img/20131005/13809674157426.png) center no-repeat; background-size:contain;"></div>
-        <div class="text">修冰箱</div>
-    </a><a data-role="none" g='linkgroup' t="3">
-        <div class="img" style="background:url(/upload/img/20131005/13809674319154.png) center no-repeat; background-size:contain;"></div>
-        <div class="text">修电视</div>
-    </a><a data-role="none" g='linkgroup' t="4">
-        <div class="img" style="background:url(/upload/img/20131005/13809674461949.png) center no-repeat; background-size:contain;"></div>
-        <div class="text">门窗维修</div>
-    </a><a data-role="none" g='linkgroup' t="5">
-        <div class="img" style="background:url(/upload/img/20131005/13809674651404.png) center no-repeat; background-size:contain;"></div>
-        <div class="text">卫浴维修</div>
-    </a><a data-role="none" g='linkgroup' t="6">
-        <div class="img" style="background:url(/upload/img/20131005/13809674805918.png) center no-repeat; background-size:contain;"></div>
-        <div class="text">防水补漏</div>
-    </a><a data-role="none" g='linkgroup' t="7">
-        <div class="img" style="background:url(/upload/img/20131005/13809674805918.png) center no-repeat; background-size:contain;"></div>
-        <div class="text">上门保洁</div>
-    </a><a data-role="none" g='linkgroup' t="8">
-        <div class="img" style="background:url(/upload/img/20131005/13809674974016.png) center no-repeat; background-size:contain;"></div>
         <div class="text">修手机</div>
-    </a><a data-role="none" g='linkgroup' t="9">
-        <div class="img" style="background:url(/upload/img/20131005/13809674974016.png) center no-repeat; background-size:contain;"></div>
+    </a><a data-role="none" g='linkgroup' t="600">
+        <div class="img" style="background:url(/upload/img/20131005/13809673974739.png) center no-repeat; background-size:contain;"></div>
         <div class="text">修电脑</div>
-    </a><a data-role="none" g='linkgroup' t="10">
+    </a><a data-role="none" g='linkgroup' t="700">
+        <div class="img" style="background:url(/upload/img/20131005/13809674157426.png) center no-repeat; background-size:contain;"></div>
+        <div class="text">修空调</div>
+    </a><a data-role="none" g='linkgroup' t="800">
+        <div class="img" style="background:url(/upload/img/20131005/13809674319154.png) center no-repeat; background-size:contain;"></div>
+        <div class="text">修热水器</div>
+    </a><a data-role="none" g='linkgroup' t="900">
+        <div class="img" style="background:url(/upload/img/20131005/13809674461949.png) center no-repeat; background-size:contain;"></div>
+        <div class="text">修门窗</div>
+    </a><a data-role="none" g='linkgroup' t="1000">
+        <div class="img" style="background:url(/upload/img/20131005/13809674651404.png) center no-repeat; background-size:contain;"></div>
+        <div class="text">开锁换锁</div>
+    </a><a data-role="none" g='linkgroup' t="1100">
+        <div class="img" style="background:url(/upload/img/20131005/13809674805918.png) center no-repeat; background-size:contain;"></div>
+        <div class="text">修冰箱</div>
+    </a><a data-role="none" g='linkgroup' t="1200">
+        <div class="img" style="background:url(/upload/img/20131005/13809674319154.png) center no-repeat; background-size:contain;"></div>
+        <div class="text">修洗衣机</div>
+    </a><a data-role="none" g='linkgroup' t="1300">
         <div class="img" style="background:url(/upload/img/20131005/13809674974016.png) center no-repeat; background-size:contain;"></div>
+        <div class="text">防水补漏</div>
+    </a><a data-role="none" g='linkgroup' t="1400">
+        <div class="img" style="background:url(/upload/img/20131005/13809674461949.png) center no-repeat; background-size:contain;"></div>
         <div class="text">疏通管道</div>
-    </a><a data-role="none" g='linkgroup' t="11">
-        <div class="img" style="background:url(/upload/img/20131005/13809674974016.png) center no-repeat; background-size:contain;"></div>
-        <div class="text">上门回收</div>
+    </a><a data-role="none" g='linkgroup' t="1500">
+        <div class="img" style="background:url(/upload/img/20131005/13809673974739.png) center no-repeat; background-size:contain;"></div>
+        <div class="text">修油烟机</div>
+    </a><a data-role="none" g='linkgroup' t="1600">
+        <div class="img" style="background:url(/upload/img/20131005/13809673822754.png) center no-repeat; background-size:contain;"></div>
+        <div class="text">修煤气灶</div>
     </a>
 								
 							
@@ -156,7 +157,7 @@
 					<div class="footer-nav">
 						<ul>  
 							<li><a href="/register.html"> 发布信息 </a></li>
-							<li><a href="/chaxun.html"> 联系我们 </a> </li>
+							<li><a href="/guanyu.html"> 联系我们 </a> </li>
 						</ul> 
 						<div class="clearfix"> </div>
 					</div> 

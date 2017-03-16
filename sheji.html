@@ -17,7 +17,15 @@
 <script type="text/javascript" src="wiying/Tpl/Wap/wiying/common/alert.js"></script>
 <script type="text/javascript" src="wiying/Tpl/Wap/wiying/common/common.js"></script>
             <script>
-            $(function () {
+                $(function () {
+                    $("a.menu-button").click(function () {
+                        if (window.history.length <= 1) {
+                            window.location.href = '/FE/index.html';
+                        } else {
+                            window.history.back();
+                        }
+                    });
+
 	            $("[g='linkgroup']").click(function () {
 	                location.href = '/FE/single.html?id=' + $(this).attr("id");
 	            });
@@ -30,8 +38,7 @@
         <div class="content-wrap">
             <div class="header">
                 <div class="menu-icon">
-			<!--		<a data-rel="back" data-role="none" class="menu-button"><p></p></a>-->
-                    <button class="menu-button" id="open-button">O</button>
+			        <a data-rel="back" data-role="none" class="menu-button"><p></p></a>
 				</div> 
                 <div class="login">
                     <a class="sign-in popup-top-anim" href="/FE/index.html"><span class="glyphicon glyphicon-user"></span></a> 
@@ -39,15 +46,12 @@
                 <div class="clearfix"> </div>
             </div>
             <div class="content">
-                <div class="content5">
-                    <p><b>当前位置&nbsp;:&nbsp;</b><span id="wz"></span>
-                    <span>
-                        <button type="button" class="btn btn-default" aria-label="Left Align" id="btn">
-												<span class="glyphicon glyphicon-search"></span>
-											</button>
-                    </span>
-                    </p>
-                </div>
+                
+                    <div class="content5">
+                         <p><b>当前位置&nbsp;:&nbsp;</b><span id="wz"></span></p>
+                         <a href="/chaxun.html"><p class="p2"></p></a>
+                    </div>
+             
                 <div data-role="listview" class="list-content">
                 <a data-role="none" g='linkgroup'>
                     <div class="text-img">

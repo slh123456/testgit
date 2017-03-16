@@ -22,8 +22,28 @@
 <!-- //js -->
 <!-- pop-up-box -->
 <script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+<style type="text/css">
+    #allmap{height:200px;width:100%;}
+</style>
 <script>
-	$(document).ready(function() {
+    $(document).ready(function () {
+        //百度地图显示商家位置
+        var map = new BMap.Map("allmap");
+        var point = new BMap.Point(121.476272, 31.251696);
+        map.centerAndZoom(point, 16);
+        var mk = new BMap.Marker(point);
+        map.addOverlay(mk);
+        map.panTo(r.point);
+        //end 百度地图显示商家位置
+
+        $("a.menu-button").click(function () {
+            if (window.history.length <= 1) {
+                window.location.href = '/FE/index.html';
+            } else {
+                window.history.back();
+            }
+        });
+
 		$('.popup-top-anim').magnificPopup({
 			type: 'inline',
 			fixedContentPos: false,
@@ -70,6 +90,7 @@ function reviewsAdd() {
 
 }
 </script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=Vjl8znYQNzDtzIht8IOKLWLsIOg5eH2x"></script>
 <!--//pop-up-box -->
 <!-- web-fonts -->  
 
@@ -80,8 +101,7 @@ function reviewsAdd() {
 		<div class="content-wrap">
 			<div class="header">
                 <div class="menu-icon">
-			<!--		<a data-rel="back" data-role="none" class="menu-button"><p></p></a>-->
-                    <button class="menu-button" id="open-button">O</button>
+			        <a data-rel="back" data-role="none" class="menu-button"><p></p></a>
 				</div> 
                 <div class="login">
                     <a class="sign-in popup-top-anim" href="/FE/index.html"><span class="glyphicon glyphicon-user"></span></a> 
@@ -100,6 +120,7 @@ function reviewsAdd() {
 							<p><b>电话 :</b> 13817531105 </p>
 						</div>
 					</div>
+                    <div id="allmap"></div>
 					<div class="w3ls-related">   
 						<div class="contact-form"> 
 							<form action="#" method="post">

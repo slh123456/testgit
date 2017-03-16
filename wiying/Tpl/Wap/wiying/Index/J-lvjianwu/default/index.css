@@ -13,7 +13,9 @@ ul{ list-style:none;}
 .footer-bottom a{ color:#fff;}
 
 .content5{ overflow:hidden; line-height:15px;padding:2px 5px; background-color:#ccc;}
-.content5 p{ color:#000;}
+.content5 p{ color:#000;display:inline-block;}
+.content5 .p2{ margin:2px; float:right;background: url(/images/Home_16x16.png) no-repeat; width:16px; height:16px;}
+.p21{ margin:2px; float:right; width:16px; height:16px; background: url(/images/Home_16x16.png) no-repeat;padding: 4%;}
 
 .content6{ padding:5px; overflow:hidden;}
 .content6 a{ float:left; height:80px; width:32.3333333%; margin:0px 1.5% 5px 0px; display:block;}

@@ -21,30 +21,18 @@
 	}
 
 	function initEvents() {
-		// openbtn.addEventListener( 'click', toggleMenu );
-		// if( closebtn ) {
-		// 	closebtn.addEventListener( 'click', toggleMenu );
-		// }
+		openbtn.addEventListener( 'click', toggleMenu );
+		if( closebtn ) {
+			closebtn.addEventListener( 'click', toggleMenu );
+		}
 
-		// // close the menu element if the target it麓s not the menu element or one of its descendants..
-		// content.addEventListener( 'click', function(ev) {
-		// 	var target = ev.target;
-		// 	if( isOpen && target !== openbtn ) {
-		// 		toggleMenu();
-		// 	}
-		// } );
-
-		//点击icon跳转
-		document.getElementsByClassName("content6")[0].addEventListener('click',function(event){
-			var target = event.target;
-			var type = event.target.parentElement.getAttribute("t");	
-			 $.get("http://www.gucunzhaopin.com/query.ashx?p=0&ty="+type,
-  
-  function(data,status){
-    alert("Data: " + data + "\nStatus: " + status);
-  });		
-		});
-
+		// close the menu element if the target it´s not the menu element or one of its descendants..
+		content.addEventListener( 'click', function(ev) {
+			var target = ev.target;
+			if( isOpen && target !== openbtn ) {
+				toggleMenu();
+			}
+		} );
 	}
 
 	function toggleMenu() {

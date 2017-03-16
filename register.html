@@ -76,108 +76,189 @@
         error: function () { alert('Error'); },
         success: function (data) {
             var json = eval("(" + data + ")");
-            if (json.Status == 200) { location.href = "index.html"; }
+            if (json.Status == 200) { location.href = "/FE/index.html"; }
             else { alert('发布错误,请重新发布!'); }
         }
     	});
 		};
-		
-    	$(function () {
-            $.ajax({
-                type: "POST",
-                url: "sheng.ashx",
-                data: {},
-                //contentType: "application/json; charset=utf-8",服务无法接收data参数 所以注释
-                dataType: "json",
-                async: false, 
-                complete:function(){},
-                error: function () {
-                		alert('error');
-                },
-                success: function (result) { 
-                	var ping;
-                    $.each(result, function (i, item) {
-                    		 ping += "<option value="+item.ID+">";
-                        ping += item.MC;
-                        ping += "</option>";
-                    	})
-                    	$('#sheng').append(ping);
-                    	$('#sheng').change();
-                }
-            });
 
-            $('#sheng').change(function () {
-            	$('#shi option:gt(0)').remove();
-            	$('#qu option:gt(0)').remove();
-            	
-            	$.ajax({
-                type: "POST",
-                url: "shi.ashx",
-                data: {"fguid":$('#sheng option:selected').val()},
-                //contentType: "application/json; charset=utf-8",服务无法接收data参数 所以注释
-                dataType: "json",
-                async: false, 
-                complete:function(){},
-                error: function () {
-                		alert('error');
-                },
-                success: function (result) { 
-                	var ping;
-                    $.each(result, function (i, item) {
-                    		 ping += "<option value="+item.ID+">";
-                        ping += item.MC;
-                        ping += "</option>";
-                    	})
-                    	$('#shi').append(ping);
-                    	$('#shi').change();
-                }
-            	})
-            	
-            });
-            
-            
-            $('#shi').change(function () {
-            	$('#qu option:gt(0)').remove();
-            	
-            	$.ajax({
-                type: "POST",
-                url: "qu.ashx",
-                data: {"fguid":$('#shi option:selected').val()},
-                //contentType: "application/json; charset=utf-8",服务无法接收data参数 所以注释
-                dataType: "json",
-                async: false, 
-                complete:function(){},
-                error: function () {
-                		alert('error');
-                },
-                success: function (result) { 
-                	var ping;
-                    $.each(result, function (i, item) {
-                    		 ping += "<option value="+item.ID+">";
-                        ping += item.MC;
-                        ping += "</option>";
-                    	})
-                    	$('#qu').append(ping);
-                }
-            	})
-            	
-            });
+		$(function () {
+		    $("a.menu-button").click(function () {
+		        if (window.history.length <= 1) {
+		            window.location.href = '/FE/index.html';
+		        } else {
+		            window.history.back();
+		        }
+		    });
+
+		    $.ajax({
+		        type: "POST",
+		        url: "sheng.ashx",
+		        data: {},
+		        //contentType: "application/json; charset=utf-8",服务无法接收data参数 所以注释
+		        dataType: "json",
+		        async: false,
+		        complete: function () { },
+		        error: function () {
+		            alert('error');
+		        },
+		        success: function (result) {
+		            var ping;
+		            $.each(result, function (i, item) {
+		                ping += "<option value=" + item.ID + ">";
+		                ping += item.MC;
+		                ping += "</option>";
+		            })
+		            $('#sheng').append(ping);
+		            $('#sheng').change();
+		        }
+		    });
+
+		    $('#sheng').change(function () {
+		        $('#shi option:gt(0)').remove();
+		        $('#qu option:gt(0)').remove();
+
+		        $.ajax({
+		            type: "POST",
+		            url: "shi.ashx",
+		            data: { "fguid": $('#sheng option:selected').val() },
+		            //contentType: "application/json; charset=utf-8",服务无法接收data参数 所以注释
+		            dataType: "json",
+		            async: false,
+		            complete: function () { },
+		            error: function () {
+		                alert('error');
+		            },
+		            success: function (result) {
+		                var ping;
+		                $.each(result, function (i, item) {
+		                    ping += "<option value=" + item.ID + ">";
+		                    ping += item.MC;
+		                    ping += "</option>";
+		                })
+		                $('#shi').append(ping);
+
+		                //如果个数是2，则选中第二个，因为第一个是  请选择
+		                //	                var len = $("select[id=shi] option").size();
+		                //	                if (len == 2) {
+		                //	                    $("#shi ").get(0).selectedIndex = 1;
+		                //	                }
+		                if (shi != undefined) {
+		                    $('#shi option:contains(' + shi + ')').each(function () {
+		                        if ($(this).text() == shi) {
+		                            $(this).attr('selected', true);
+		                        }
+		                    });
+		                }
+
+
+		                $('#shi').change();
+		            }
+		        })
+
+		    });
+
+
+		    $('#shi').change(function () {
+		        $('#qu option:gt(0)').remove();
+
+		        $.ajax({
+		            type: "POST",
+		            url: "qu.ashx",
+		            data: { "fguid": $('#shi option:selected').val() },
+		            //contentType: "application/json; charset=utf-8",服务无法接收data参数 所以注释
+		            dataType: "json",
+		            async: false,
+		            complete: function () { },
+		            error: function () {
+		                alert('error');
+		            },
+		            success: function (result) {
+		                var ping;
+		                $.each(result, function (i, item) {
+		                    ping += "<option value=" + item.ID + ">";
+		                    ping += item.MC;
+		                    ping += "</option>";
+		                })
+		                $('#qu').append(ping);
+
+
+		                if (qu != undefined) {
+		                    $('#qu option:contains(' + qu + ')').each(function () {
+		                        if ($(this).text() == qu) {
+		                            $(this).attr('selected', true);
+		                        }
+		                    });
+		                }
+
+
+
+		            }
+		        })
+
+		    });
             
             $(".submit").click(function(){
             	add();
-			});
+         });
+
+         var province;
+         var shi;
+         var qu;
+         var dz;
+         $("#p21").click(function () {
+             var map = new BMap.Map("allmap");
+             var geolocation = new BMap.Geolocation();
+             geolocation.getCurrentPosition(function (r) {
+                 if (this.getStatus() == BMAP_STATUS_SUCCESS) {
+                     //                var mk = new BMap.Marker(r.point);
+                     //                map.addOverlay(mk);
+                     //                map.panTo(r.point);
+                     //            alert('您的位置：' + r.point.lng + ',' + r.point.lat);
+                     pt = r.point;
+                     var myGeo = new BMap.Geocoder();
+                     myGeo.getLocation(pt, function (rs) {
+                         var addComp = rs.addressComponents;
+                         //document.getElementById("wz").innerHTML = addComp.city + addComp.district + addComp.street + addComp.streetNumber;
+                         //alert(addComp.province);
+                         //	                    $("#sheng").find("option[text='" + addComp.province + "']").attr("selected", true);
+                         //	                    $('#sheng option').each(function () {
+                         //	                        if ($(this).text() == addComp.province) {
+                         //	                            $(this).attr('selected', true);
+                         //	                        }
+                         //	                    });
+                         province = addComp.province;
+                         shi = addComp.city;
+                         qu = addComp.district;
+                         $('#sheng option:contains(' + province + ')').each(function () {
+                             if ($(this).text() == province) {
+                                 $(this).attr('selected', true);
+                                 $('#sheng').change();
+                             }
+                         });
+
+                         $('#dz').val(addComp.street + addComp.streetNumber);
+
+
+                     });
+                 }
+                 else {
+                     alert('定位失败,请选择位置!');
+                 }
+             }, { enableHighAccuracy: true })
+         });
 
             
           });
     </script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=Vjl8znYQNzDtzIht8IOKLWLsIOg5eH2x"></script>
 </head>
 <body class="bg">
 	<div class="agile-main">
 		<div class="content-wrap">
 			<div class="header">
                 <div class="menu-icon">
-			<!--		<a data-rel="back" data-role="none" class="menu-button"><p></p></a>-->
-                    <button class="menu-button" id="open-button">O</button>
+			        <a data-rel="back" data-role="none" class="menu-button"><p></p></a>
 				</div> 
                 <div class="login">
                     <a class="sign-in popup-top-anim" href="/FE/index.html"><span class="glyphicon glyphicon-user"></span></a> 
@@ -188,7 +269,7 @@
             <div class="content">
         <div class="content2">
             <div class="point">
-                <span>发布后管理员审核通过后，所有人可见。(审核时间1-3日)</span>
+                <span>发布后,审核通过后，所有人可见。(审核时间1-3日)</span>
             </div>
       
                 <div class="message">
@@ -197,9 +278,19 @@
                     <input id="lxr" type="text" placeholder="联系人" required/>
                     <input id="dh" type="text" placeholder="固话/手机" required/>
                     <select id="lb" class="lb" name="lb">
-                        <option value="0">选择类别</option>
-                        <option value="500">家电维修</option>
-                        <option value="600">房屋维修</option>
+                        <option value="0">选择...</option>
+                        <option value="500">修手机</option>
+                        <option value="600">修电脑</option>
+                        <option value="700">修空调</option>
+                        <option value="800">修热水器</option>
+                        <option value="900">修门窗</option>
+                        <option value="1000">开锁换锁</option>
+                        <option value="1100">修冰箱</option>
+                        <option value="1200">修洗衣机</option>
+                        <option value="1300">防水补漏</option>
+                        <option value="1400">疏通管道</option>
+                        <option value="1500">修油烟机</option>
+                        <option value="1600">修煤气灶</option>
                     </select>
                     <div class="dz">
                     	<select class="pro" id="sheng">
@@ -213,6 +304,7 @@
                     	</select>
                     </div>
                     <input id="dz" type="text" placeholder="街道号" required/>
+                    <a href="javascript:void(0);"><p class="p21" id="p21"></p></a>
                 </div>
 
                 <button class="submit" type="button">发布信息</button>
@@ -222,5 +314,6 @@
 
         </div>
     </div>
+    <div id="allmap"></div>
 </body>
 </html>

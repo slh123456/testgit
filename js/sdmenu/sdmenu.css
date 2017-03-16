@@ -1,0 +1,63 @@
+div.sdmenu {
+	width: 180px;
+	font-family: Arial, "ËÎÌו";
+	font-size: 12px;
+}
+div.sdmenu div {
+	background: url(/admin/images/nbHeaderBack.gif) repeat-x;
+	overflow: hidden;
+	border-bottom:solid 1px #dcdcdc;
+}
+div.sdmenu div :hover{
+	background: url(/admin/images/nbHeaderHBack.gif) repeat-x;
+}
+div.sdmenu div.collapsed {
+	height: 25px;
+}
+div.sdmenu div span {
+	width:180px;
+	_width:170px;
+	height:16px;
+	clear:both;
+	display: block;
+	padding:5px 5px;
+	font-weight: bold;
+	color: #333;
+	cursor: default;
+	border-bottom: 1px solid #ddd;
+}
+
+div.sdmenu div ul,li{
+    margin: 0px;
+	padding: 0px;
+	float:left;
+	width:180px;
+	_width:180px;
+	list-style-type: none;
+}
+
+div.sdmenu div span b{ float:left; margin-top:1px; +margin-top:3px;}
+div.sdmenu div span img{ margin-right:5px; float:left;}
+
+div.sdmenu div a {
+	display:block;
+	padding: 5px 25px;
+	background :#edf3f4 url(/admin/images/ico_arrow_2.gif) no-repeat left center;
+	background-position:10px;
+	border:1px solid #edf3f4;
+	color: #039;
+	text-decoration:underline;
+}
+div.sdmenu div a:focus {
+	border:1px solid #87b8c7;
+	background-color:#9eced6;
+}
+div.sdmenu div a:hover {
+	display:block;
+	padding: 5px 25px;
+	background :#d9eced url(/admin/images/ico_arrow_2.gif) no-repeat left center;
+	background-position:10px;
+	border:1px solid #c0dde0;
+	color: #039;
+	text-decoration:none;
+}

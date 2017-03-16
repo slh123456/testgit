@@ -260,8 +260,8 @@ th {
 @font-face {
   font-family: 'Glyphicons Halflings';
 
-  src: url('/FE/fonts/glyphicons-halflings-regular.eot');
-  src: url('/FE/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('/FE/fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('/FE/fonts/glyphicons-halflings-regular.woff') format('woff'), url('/FE/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('/FE/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+  src: url('/fonts/glyphicons-halflings-regular.eot');
+  src: url('/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('/fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('/fonts/glyphicons-halflings-regular.woff') format('woff'), url('/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
 .glyphicon {
   position: relative;
@@ -303,8 +303,9 @@ th {
 .glyphicon-music:before {
   content: "\e002";
 }
-.glyphicon-search:before {
-  content: "\e003";
+.glyphicon-search2 {
+  /*content: "\e003";*/
+  background: url(/images/Zoom_32x32.png) no-repeat;
 }
 .glyphicon-heart:before {
   content: "\e005";

@@ -1,0 +1,48 @@
+﻿
+.con-left{float:left;width:100%;height:100%;border:#e0e0e0 1px solid; margin:10px 0 0 0;}
+.con-right{float:right;width:305px;margin:10px 0 0 0;}
+
+
+.list-page{text-align:center; margin:10px 5px 10px 5px; font-size:45px;}
+.list-page b {font-size:45px;display:inline-block;font-weight:bold; width:60px; height:60px; line-height:60px; margin:0px 3px 0px 0px;border:#e0e0e0 solid 1px;}
+.list-page a{font-size:45px;display:inline-block;border:#e0e0e0 solid 1px;color:#038;width:60px; height:60px; line-height:60px; margin:0px 3px 0px 0px;}
+.list-page span {text-align:center;display:inline-block; height:60px; width:60px;margin:0px 2px 0px 0px;}
+.list-page span { width:140px; display:inline-block; margin-right:5px;}
+.list-page span a {width:100%;}
+
+
+/*右侧共用---------------------------------------*/
+.right-box{width:305px;}
+
+.right-box .right-tit{height:32px;background-color:#CAE1FF;}
+.right-box .right-tit .left{float:left; font-size:14px; font-weight:bold; text-align:center; line-height:32px;}
+
+.right-box .right-tit .right{float:right; font-size:14px; font-weight:bold; text-align:center; line-height:32px;}
+.right-box .right-tit .right a,.right-box .right-tit .right a:hover{color:#809b99;}
+
+.right-box .right-cons{border:#eee 1px solid; border-top:0; display:block; overflow:hidden;zoom:1; }
+
+.specialtxt li,.list_jbk li,.list_ypk li,.list_yyk li,.list_ysk li{background:url(/images/8/ico_listdot.gif) no-repeat 0 10px; text-indent:10px; white-space:nowrap; overflow:hidden; text-overflow: ellipsis;}
+ul.rewenjb{background:none}
+.rewenjb li{background:url(/images/8/libgs.png) left center no-repeat; overflow:hidden; text-indent:20px;}
+
+
+.specialtxt{clear:both;padding:8px 12px 10px; height:100%; overflow:hidden;}
+.specialtxt li{width:100%;font:12px/24px "宋体";}
+
+/*yun-baike*/
+.yun-baike{ margin:10px auto; overflow:hidden;zoom:1; width:280px; height:97px; overflow:hidden; padding:0;}
+.yun-baike a{ float:left; padding:3px 5px; color:#333; text-decoration:none; line-height:16px; margin:1px;white-space:nowrap;}
+.yun-baike a:hover{ background:#f90;color:#fff; text-decoration:none;}
+
+
+/*list_quick------------------------*/
+.list_quick{margin:0 5px; padding:8px 3px 8px 7px;border-bottom:#dbe7e7 1px dashed; height:100%; overflow:hidden;}
+.list_quick li{float:left; width:25%; background:url(/images/8/ico_listdot.gif) no-repeat 0 9px; text-indent:6px; font:12px/22px "宋体"; white-space:nowrap; overflow:hidden;}
+/*list_tags------------------------*/
+.list_tags{padding:8px 5px 10px 12px; height:100%; overflow:hidden; font:12px/24px "宋体"; }
+.list_tags a{color:#333;white-space:nowrap;}
+.list_tags a:hover{color:#f60; text-decoration:underline;}
+.list_tags .orange{ font-weight:bold;}
+
+

@@ -1,0 +1,71 @@
+
+
+#nav{ width:100%; margin:0 auto; font-size:40px; font-family:Arial,SimSun;}
+#nav a:link,#nav a:visited{color:#ffffff; text-decoration:none; }
+#nav a:hover{ text-decoration:none; }
+#nav ul.main{ width:100%; float:left;  overflow:hidden ;}
+
+#nav ul.main li{ width:120px; 
+                 float:left; 
+                 display:inline; 
+                 height:31px; 
+                 line-height:33px;
+                 text-align:center;
+                 }
+#nav ul.main li a{ width:100%;height:100%;display:block;font-size:14px;}
+
+#nav ul.main li.on{ color:#ffffff; 
+                    /*border-top:solid 2px #508de0; */
+                    background:#50931e; 
+                    /*font-weight:bold; */
+                    line-height:33px;}
+#nav ul.main li.on a:link,#nav li.on a:visited{color:#ffffff;}
+
+#nav ul.main li.event{float:right;display:inline;width:auto;background:url(../images/nav_icon.gif) 0 15px no-repeat;text-align:left;margin-right:15px;}
+#nav ul.main li.event a{font-size:12px;padding-left:10px;display:inline;}
+#nav ul.main li.event a:hover{text-decoration:underline;}
+
+/*#nav ul.sub{display:none; position:absolute; left:0; top:33px; width:944px; font-weight:normal; font-size:12px; border-width:0px 1px 1px; border-style:solid; border-color:#e6e6e6; height:27px; line-height:27px; color:#cccccc; background:url(../images/nav_sub.png) 0 bottom repeat-x #ffffff; padding-left:4px}
+#nav ul.sub li a{display:inline;font-size:12px;}
+
+#nav ul.sub a:hover{text-decoration:underline;}
+#nav ul.sub li{width:auto; margin-top:7px; padding:0 15px; line-height:14px; height:14px; border-right:solid 1px #CCCCCC; vertical-align:bottom}
+#nav ul.sub li.last{border:none; }
+#nav ul.sub li.current{font-weight:bold; }
+#nav li.on ul.sub{display:block;}
+*/
+#nav ul.black{ background-color:#60af00}
+/*
+#nav ul.black li.on{border-top:solid 2px #FF9C00;}
+#nav ul.red{ background:url(../images/nav_bg_red.gif) 0 bottom repeat-x;}
+#nav ul.red li.on{border-top:solid 2px #AF2E2E;}
+#nav ul.orange{ background:url(../images/nav_bg_orange.gif) 0 bottom repeat-x;}
+#nav ul.orange li.on{border-top:solid 2px #FB8F09;}
+#nav ul.green{ background:url(../images/nav_bg_green.gif) 0 bottom repeat-x;}
+#nav ul.green li.on{border-top:solid 2px #53A117;}
+*/
+
+
+
+
+
+
+.lanm{ border:1px solid #e0e0e0;width:970px;padding:0px;background:#fafafa;overflow:hidden;margin:0 auto;}
+
+
+.lanm .title div.bt{ float:left; padding-top:5px} 
+.lanm .title div.bt a{ color:#333333; font-size:14px; font-weight:bold; margin-left:0px}
+.lanm .title div.list{ float:right; color:#2a8ce8; padding-right:10px; padding-top:8px}
+.lanm .title div.list a{ margin:0 8px; color:#2a8ce8}
+
+.lanm ul.link{ overflow:auto; zoom:1; padding:3px 10px 10px 12px; border:solid 1px #FFF;}
+.lanm ul.link li{ display:inline;list-style:none; float:left;margin-right:6px;+margin-right:2px;_margin-right:2px;line-height:20px  }
+.lanm ul.link li a{color:#666666; white-space:nowrap}
+.link span{ display: inline-block}
+
+.lanm .pic_text{ overflow:auto; zoom:1; padding-left:5px}
+.lanm .pic_text li{ list-style:none; float:left; margin-right:6px;+margin-right:2px;_margin-right:2px; line-height:20px  }
+.lanm .pic_text li a{color:#666666; white-space:nowrap}
+
+.lanm .logo_pic{ margin-top:5px}
+.lanm .logo_pic a{ margin:0 0 0 5px;}
