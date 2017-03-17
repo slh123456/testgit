@@ -1,42 +1,54 @@
 ﻿<!DOCTYPE html>
 <html>
+
 <head>
-<title></title> 
-<!-- For-Mobile-Apps-and-Meta-Tags -->
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
-<!-- //For-Mobile-Apps-and-Meta-Tags -->
-<!-- Custom Theme files -->
-<!--<link href="css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
+    <title></title>
+    <!-- For-Mobile-Apps-and-Meta-Tags -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript">
+    addEventListener("load", function() {
+        setTimeout(hideURLbar, 0);
+    }, false);
+
+    function hideURLbar() {
+        window.scrollTo(0, 1);
+    }
+    </script>
+    <!-- //For-Mobile-Apps-and-Meta-Tags -->
+    <!-- Custom Theme files -->
+    <!--<link href="css/bootstrap.css" type="text/css" rel="stylesheet" media="all">
 <link href="css/style.css" type="text/css" rel="stylesheet" media="all">  
 <link rel="stylesheet" href="css/ken-burns.css" type="text/css" media="all" /> -->
-<link href="/FE/css/bootstrap.css" type="text/css" rel="stylesheet" media="all"/>
-<link href="/FE/css/style.css" type="text/css" rel="stylesheet" media="all"/> 
-<link rel="stylesheet" href="/FE/css/ken-burns.css" type="text/css" media="all" /> 
-<link type="text/css" rel="stylesheet" href="/wiying/Tpl/Wap/wiying/Index/J-lvjianwu/default/index.css" />
-<link rel="stylesheet" href="/css/register.css"/>
-<!-- //Custom Theme files -->
-<!-- js -->
-<script src="js/jquery-2.2.3.min.js"></script> 
-<!-- //js -->
-<!-- pop-up-box -->
-<script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
-<style type="text/css">
-    #allmap{height:200px;width:100%;}
-</style>
-<script>
-    $(document).ready(function () {
+    <link href="/FE/css/bootstrap.css" type="text/css" rel="stylesheet" media="all" />
+    <link href="/FE/css/style.css" type="text/css" rel="stylesheet" media="all" />
+    <link rel="stylesheet" href="/FE/css/ken-burns.css" type="text/css" media="all" />
+    <link type="text/css" rel="stylesheet" href="/wiying/Tpl/Wap/wiying/Index/J-lvjianwu/default/index.css" />
+    <link rel="stylesheet" href="/css/register.css" />
+    <!-- //Custom Theme files -->
+    <!-- js -->
+    <script src="js/jquery-2.2.3.min.js"></script>
+    <!-- //js -->
+    <!-- pop-up-box -->
+    <script src="js/jquery.magnific-popup.js" type="text/javascript"></script>
+    <style type="text/css">
+    #allmap {
+        height: 200px;
+        width: 100%;
+    }
+    </style>
+    <script>
+    $(document).ready(function() {
         //百度地图显示商家位置
         var map = new BMap.Map("allmap");
         var point = new BMap.Point(121.476272, 31.251696);
         map.centerAndZoom(point, 16);
         var mk = new BMap.Marker(point);
         map.addOverlay(mk);
-        map.panTo(r.point);
+        //map.panTo(r.point);
         //end 百度地图显示商家位置
 
-        $("a.menu-button").click(function () {
+        $("a.menu-button").click(function() {
             if (window.history.length <= 1) {
                 window.location.href = '/FE/index.html';
             } else {
@@ -44,129 +56,161 @@
             }
         });
 
-		$('.popup-top-anim').magnificPopup({
-			type: 'inline',
-			fixedContentPos: false,
-			fixedBgPos: true,
-			overflowY: 'auto',
-			closeBtnInside: true,
-			preloader: false,
-			midClick: true,
-			removalDelay: 300,
-			mainClass: 'my-mfp-zoom-in'
-		});
-});
-
-function reviewsAdd() {
-    var txtValue = $.trim($("#reviewsbox").val());
-    var nameValue = "input[name='rdoSum']";
-    var rdoSum = 0;
-    $(nameValue).each(function () {
-        if ($(this).attr("checked") == "checked") {
-            rdoSum = $(this).val();
-
-        }
+        $('.popup-top-anim').magnificPopup({
+            type: 'inline',
+            fixedContentPos: false,
+            fixedBgPos: true,
+            overflowY: 'auto',
+            closeBtnInside: true,
+            preloader: false,
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-zoom-in'
+        });
     });
 
-    if (rdoSum == 0) {
-        dialogError("错误", "请选择评分！");
+    function reviewsAdd() {
+        var txtValue = $.trim($("#reviewsbox").val());
+        var nameValue = "input[name='rdoSum']";
+        var rdoSum = 0;
+        $(nameValue).each(function() {
+            if ($(this).attr("checked") == "checked") {
+                rdoSum = $(this).val();
 
-    }
-    else if (txtValue == null || txtValue == "") {
-        dialogError("错误", "请填写评论内容！");
-    }
-    else {
-        $.ajax({
-            type: "POST",
-            url: "/Ajax/Reviews.ashx",
-            datatype: "json",
-            data: { 'sid': '<%=sid %>', 'level': rdoSum, 'nr': txtValue },
-            error: function () { alert('Error'); },
-            success: function (data) {
-                alert('111');
             }
         });
+
+        if (rdoSum == 0) {
+            dialogError("错误", "请选择评分！");
+
+        } else if (txtValue == null || txtValue == "") {
+            dialogError("错误", "请填写评论内容！");
+        } else {
+            $.ajax({
+                type: "POST",
+                url: "/Ajax/Reviews.ashx",
+                datatype: "json",
+                data: {
+                    'sid': '<%=sid %>',
+                    'level': rdoSum,
+                    'nr': txtValue
+                },
+                error: function() {
+                    alert('Error');
+                },
+                success: function(data) {
+                    alert('111');
+                }
+            });
+        }
+
     }
-
-}
-</script>
-<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=Vjl8znYQNzDtzIht8IOKLWLsIOg5eH2x"></script>
-<!--//pop-up-box -->
-<!-- web-fonts -->  
-
-<!-- //web-fonts -->
+    </script>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=Vjl8znYQNzDtzIht8IOKLWLsIOg5eH2x"></script>
+    <!--//pop-up-box -->
+    <!-- web-fonts -->
+    <!-- //web-fonts -->
 </head>
+
 <body class="bg">
-	<div class="agile-main">
-		<div class="content-wrap">
-			<div class="header">
+    <div class="agile-main">
+        <div class="content-wrap">
+            <div class="header">
                 <div class="menu-icon">
-			        <a data-rel="back" data-role="none" class="menu-button"><p></p></a>
-				</div> 
+                    <a data-rel="back" data-role="none" class="menu-button">
+                        <p></p>
+                    </a>
+                </div>
                 <div class="login">
-                    <a class="sign-in popup-top-anim" href="/FE/index.html"><span class="glyphicon glyphicon-user"></span></a> 
+                    <a class="sign-in popup-top-anim" href="/FE/index.html"><span class="glyphicon glyphicon-user"></span></a>
                 </div>
                 <div class="clearfix"> </div>
             </div>
-			<div class="content">
-				<!-- properties --> 
-				<div class="w3agile properties">   
-					<div class="w3ls-details">
-						<div class="w3ls-text">
-							<h4>维修空调冰箱</h4>  
-							<p><b>简介 :</b>  </p>
-							<p><b>地址 :</b> 宝山区菊盛路 </p>
-							<p><b>联系人 :</b> 张三 </p>
-							<p><b>电话 :</b> 13817531105 </p>
-						</div>
-					</div>
+            <div class="content">
+                <!-- properties -->
+                <div class="w3agile properties">
+                    <div class="w3ls-details">
+                        <div class="w3ls-text">
+                            
+                        </div>
+                    </div>
                     <div id="allmap"></div>
-					<div class="w3ls-related">   
-						<div class="contact-form"> 
-							<form action="#" method="post">
-                            <p>
-                                <input value="5" type="radio" name="rdoSum" checked="checked" />
-                                5分
-                                <input value="4" name="rdoSum" type="radio" />
-                                4分
-                                <input value="3" name="rdoSum" type="radio" />
-                                3分
-                                <input value="2" name="rdoSum" type="radio" />
-                                2分
-                                <input value="1" name="rdoSum" type="radio" />
-                                1分
-                                <img alt="" src="/images/icon_star_5.gif" /></p>
-								<!--<input type="text" name="Name" placeholder="Name" required="">
-								<input type="text" name="Email" placeholder="Email" required=""> -->
-								<textarea name="Message" placeholder="Message" required=""></textarea>
-								<input type="submit" value="提交评论">
-							</form> 
-						</div> 
-					</div>
-				</div>
-			</div>
-		</div>
-	</div> 
-	<!-- menu-js -->
-	<script src="js/classie.js"></script>
-	<script src="js/main.js"></script>
-	<!-- //menu-js -->
-	<!-- nicescroll-js -->
-	<script src="js/jquery.nicescroll.min.js"></script> 
-	<script>
-		$(document).ready(function() {
-	  
-			var nice = $("html").niceScroll();  // The document page (body)
-		
-			$("#div1").html($("#div1").html()+' '+nice.version);
-		
-			$("#boxscroll").niceScroll({cursorborder:"",cursorcolor:"#00F",boxzoom:true}); // First scrollable DIV
-		});
-	</script>
-	<!-- //nicescroll-js -->
-	<!-- Bootstrap core JavaScript
+                    <div class="w3ls-related">
+                        <div class="contact-form">
+                            <form action="#" method="post">
+                                <p>
+                                    <input value="5" type="radio" name="rdoSum" checked="checked" /> 5分
+                                    <input value="4" name="rdoSum" type="radio" /> 4分
+                                    <input value="3" name="rdoSum" type="radio" /> 3分
+                                    <input value="2" name="rdoSum" type="radio" /> 2分
+                                    <input value="1" name="rdoSum" type="radio" /> 1分
+                                    <img alt="" src="/images/icon_star_5.gif" /></p>
+                                <!--<input type="text" name="Name" placeholder="Name" required="">
+                                <input type="text" name="Email" placeholder="Email" required=""> -->
+                                <textarea name="Message" placeholder="Message" required=""></textarea>
+                                <input type="submit" value="提交评论">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- menu-js -->
+    <script src="js/classie.js"></script>
+    <script src="js/main.js"></script>
+    <!-- //menu-js -->
+    <!-- nicescroll-js -->
+    <script src="js/jquery.nicescroll.min.js"></script>
+    <script>
+    $(document).ready(function() {
+
+        var nice = $("html").niceScroll(); // The document page (body)
+
+        $("#div1").html($("#div1").html() + ' ' + nice.version);
+
+        $("#boxscroll").niceScroll({
+            cursorborder: "",
+            cursorcolor: "#00F",
+            boxzoom: true
+        }); // First scrollable DIV
+
+
+        function GetQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]);
+            return null;
+
+        }
+        var requestURL = "http://www.gucunzhaopin.com/xx.ashx?sid=" + GetQueryString("id");
+
+        $.ajax({
+            type: "GET",
+            url: requestURL,
+            datatype: "json",
+
+            error: function() {
+                alert('Error');
+            },
+            success: function(data) {
+                var json = JSON.parse(data);
+                $(".w3ls-text").html("<h4>"+json.ZpTitle+"</h4>"+
+                            "<p><b>简介:</b>"+json.ZpJianJie+"</p>"+
+                            "<p><b>地址:</b>"+json.ZpDiZhi+"</p>"+
+                            "<p><b>联系人:</b>"+json.ZpLianXi+"</p>"+
+                            "<p><b>电话:</b>"+json.ZpDianHua+"</p>");
+
+               
+            }
+        });
+    });
+    </script>
+    <!-- //nicescroll-js -->
+    <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="js/bootstrap.js"></script>
 </body>
+
 </html>

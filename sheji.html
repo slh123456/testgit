@@ -83,7 +83,7 @@
             }
             //这是获取到那个list，然后遍历list_name的个数，然后添加到你要添加的地方。
             for (var index = 0; index< storeList.length; index++) {
-                $(".list-content").append("<a data-role='none' g='linkgroup'><div class='text-img'><h4>"+storeList[index].ZpTitle+"</h4><p>"+storeList[index].ZpDiZhi+"</p><p class='p2'>"+storeList[index].ZpGongSi+"</p><p class='p1'></p></div></a>")
+                $(".list-content").append("<a data-role='none' g='linkgroup' id="+storeList[index].Guid+"><div class='text-img'><h4>"+storeList[index].ZpTitle+"</h4><p>"+storeList[index].ZpDiZhi+"</p><p class='p2'>"+storeList[index].ZpGongSi+"</p><p class='p1'></p></div></a>")
             }
         };
         initPage();
