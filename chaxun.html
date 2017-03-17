@@ -72,8 +72,13 @@
                 alert('Error');
             },
             success: function(data) {
-                var json = JSON.parse(data).data;
-                localStorage.setItem("queryResult", json);
+                var list = JSON.parse(data).data;
+                var stroageList = [];
+                for(var i in list){
+                    stroageList.push(JSON.stringify(list[i]));
+                }
+                
+                localStorage.queryResult = JSON.stringify(stroageList);
                 location.href = "/sheji.html";
             }
         });
